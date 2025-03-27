@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use illuminate\Database\Eloquent\Factories\HasFactory;
-use illuminate\Database\Eloquent\Relations\HasMany;
+
+use Illuminate\Notifications\Notifiable;
 
 class Gender extends Model
 {
@@ -17,9 +17,5 @@ class Gender extends Model
         'gender',
     ];
 
-    public function users(): HasMany {
-
-        return $this->hasMany(User::class, 'gender_id', 'gender_id'); 
-
-    }
+   
 }

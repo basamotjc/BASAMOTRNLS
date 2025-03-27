@@ -3,21 +3,32 @@ import GenderServices from "../../services/GenderServices";
 import ErrorHandler from "../../handler/ErrorHandler";
 import GenderFieldErrors from "../../interfaces/GenderFieldErrors";
 
-const AddGenderForm = () => {
+interface AddGenderFormProps {
+  onGenderAdded: (message: string) => void;
+}
+
+const AddGenderForm = ({ onGenderAdded }: AddGenderFormProps) => {
   const [state, setState] = useState({
-    loadingstore: false,
+    loadingStore: false,
     gender: "",
     errors: {} as GenderFieldErrors,
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setState((prevState) => ({ ...prevState, [name]: value }));
+    setState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   const handleStoreGender = (e: FormEvent) => {
     e.preventDefault();
-    setState((prevState) => ({ ...prevState, loadingstore: true }));
+
+    setState((prevState) => ({
+      ...prevState,
+      loadingStore: true,
+    }));
 
     GenderServices.storeGender(state)
       .then((res) => {
@@ -27,8 +38,13 @@ const AddGenderForm = () => {
             gender: "",
             errors: {} as GenderFieldErrors,
           }));
+
+          onGenderAdded(res.data.message);
         } else {
-          console.error("Unexpected error occurred: ", res.status);
+          console.error(
+            "Unexpected status error during storing gender: ",
+            res.status
+          );
         }
       })
       .catch((error) => {
@@ -42,14 +58,17 @@ const AddGenderForm = () => {
         }
       })
       .finally(() => {
-        setState((prevState) => ({ ...prevState, loadingstore: false }));
+        setState((prevState) => ({
+          ...prevState,
+          loadingStore: false,
+        }));
       });
   };
 
   return (
     <>
       <form onSubmit={handleStoreGender}>
-        <div className="formgroup">
+        <div className="form-group">
           <div className="mb-3">
             <label htmlFor="gender">Gender</label>
             <input
@@ -66,9 +85,8 @@ const AddGenderForm = () => {
               <p className="text-danger">{state.errors.gender[0]}</p>
             )}
           </div>
-
           <div className="d-flex justify-content-end">
-            {state.loadingstore ? (
+            {state.loadingStore ? (
               <button className="btn btn-primary" type="button" disabled>
                 <span
                   className="spinner-border spinner-border-sm"
@@ -78,7 +96,7 @@ const AddGenderForm = () => {
               </button>
             ) : (
               <button type="submit" className="btn btn-primary">
-                Save!
+                SAVE
               </button>
             )}
           </div>
