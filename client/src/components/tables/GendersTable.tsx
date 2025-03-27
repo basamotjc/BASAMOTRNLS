@@ -15,32 +15,62 @@ const GendersTable = () => {
           <tr>
             <td>1</td>
             <td>Male</td>
-            <Link to={"gender/edit"} type="button" className="btn btn-primary">
-              Edit
-            </Link>
-            <Link to={"gender/delete"} type="button" className="btn btn-danger">
-              Delete
-            </Link>
+            <td>
+              <Link
+                to={"gender/edit"}
+                type="button"
+                className="btn btn-primary"
+              >
+                Edit
+              </Link>
+              <Link
+                to={"gender/delete"}
+                type="button"
+                className="btn btn-danger"
+              >
+                Delete
+              </Link>
+            </td>
           </tr>
           <tr>
             <td>2</td>
             <td>Female</td>
-            <Link to={"gender/edit"} type="button" className="btn btn-primary">
-              Edit
-            </Link>
-            <Link to={"gender/delete"} type="button" className="btn btn-danger">
-              Delete
-            </Link>
+            <td>
+              <Link
+                to={"gender/edit"}
+                type="button"
+                className="btn btn-primary"
+              >
+                Edit
+              </Link>
+              <Link
+                to={"gender/delete"}
+                type="button"
+                className="btn btn-danger"
+              >
+                Delete
+              </Link>
+            </td>
           </tr>
           <tr>
             <td>3</td>
-            <td>Gay</td>
-            <Link to={"gender/edit"} type="button" className="btn btn-primary">
-              Edit
-            </Link>
-            <Link to={"gender/delete"} type="button" className="btn btn-danger">
-              Delete
-            </Link>
+            <td>Others</td>
+            <td>
+              <Link
+                to={"gender/edit"}
+                type="button"
+                className="btn btn-primary"
+              >
+                Edit
+              </Link>
+              <Link
+                to={"gender/delete"}
+                type="button"
+                className="btn btn-danger"
+              >
+                Delete
+              </Link>
+            </td>
           </tr>
         </tbody>
       </table>

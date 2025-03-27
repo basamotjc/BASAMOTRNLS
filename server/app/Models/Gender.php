@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+use illuminate\Database\Eloquent\Factories\HasFactory;
+use illuminate\Database\Eloquent\Relations\HasMany;
 
 class Gender extends Model
 {

@@ -10,7 +10,7 @@ const DeleteGenderForm = () => {
         <div className="d-flex justify-content-end">
           <span>
             <Link to={"#"} type="button" className="btn btn-primary">
-              Edit
+              Save
             </Link>
           </span>
         </div>

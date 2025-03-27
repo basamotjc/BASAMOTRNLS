@@ -14,15 +14,15 @@ const DeleteGenderForm = () => {
         </div>
         <div className="d-flex justify-content-end">
           <span>
-            <Link to={"/"} type="submit" className="btn btn-danger">
-              No
+            <Link to={"#"} type="submit" className="btn btn-danger">
+              Yes
             </Link>
           </span>
         </div>
         <div className="d-flex justify-content-end">
           <span>
-            <Link to={"#"} type="submit" className="btn btn-danger">
-              Yes
+            <Link to={"/"} type="submit" className="btn btn-danger">
+              No
             </Link>
           </span>
         </div>

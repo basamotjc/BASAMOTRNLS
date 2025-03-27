@@ -5,4 +5,4 @@ interface Genders{
     updated_at: string;
 }
 
-export default Genders
+export default Genders;
