@@ -1,10 +1,9 @@
+import { useEffect, useState } from "react";
+import Genders from "../../../interfaces/Genders";
+import GenderService from "../../../services/GenderService";
+import ErrorHandler from "../../../handler/ErrorHandler";
+import Spinner from "../../Spinner";
 import { Link } from "react-router-dom";
-import Spinner from "./Spinner";
-import GenderService from "../../services/GenderService";
-import Genders from "../../interfaces/Genders";
-import { useState } from "react";
-import ErrorHandler from "../../handler/ErrorHandler";
-import { useEffect } from "react";
 
 interface GendersTableProps {
   refreshGenders: boolean;
@@ -19,17 +18,16 @@ const GendersTable = ({ refreshGenders }: GendersTableProps) => {
   const handleLoadGenders = () => {
     GenderService.loadGenders()
       .then((res) => {
-        if (res.status === 200 && Array.isArray(res.data.genders)) {
+        if (res.status === 200) {
           setState((prevState) => ({
             ...prevState,
             genders: res.data.genders,
           }));
         } else {
-          console.error("Unexpected response format:", res);
-          setState((prevState) => ({
-            ...prevState,
-            genders: [],
-          }));
+          console.error(
+            "Unexpected status error during loading genders: ",
+            res.status
+          );
         }
       })
       .catch((error) => {
@@ -72,15 +70,13 @@ const GendersTable = ({ refreshGenders }: GendersTableProps) => {
                 <td>
                   <div className="btn-group">
                     <Link
-                      to={`gender/edit/:${gender.gender_id}`}
+                      to={`/gender/edit/${gender.gender_id}`}
                       className="btn btn-primary"
                     >
                       Edit this!
                     </Link>
-
                     <Link
-                      to={"gender/delete"}
-                      type="button"
+                      to={`/gender/delete/${gender.gender_id}`}
                       className="btn btn-danger"
                     >
                       Delete this!
@@ -90,7 +86,7 @@ const GendersTable = ({ refreshGenders }: GendersTableProps) => {
               </tr>
             ))
           ) : (
-            <tr className="allign-middle">
+            <tr className="align-middle">
               <td className="text-center" colSpan={3}>
                 404 No Genders Found!
               </td>

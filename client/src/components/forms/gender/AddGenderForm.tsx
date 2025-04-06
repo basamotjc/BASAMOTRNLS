@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import ErrorHandler from "../../handler/ErrorHandler";
-import GenderFieldErrors from "../../interfaces/GenderFieldErrors";
-import SpinnerSmall from "../SpinnerSmall";
-import GenderService from "../../services/GenderService";
+import GenderService from "../../../services/GenderService";
+import ErrorHandler from "../../../handler/ErrorHandler";
+import GenderFieldErrors from "../../../interfaces/GenderFieldErrors";
+import SpinnerSmall from "../../SpinnerSmall";
 
 interface AddGenderFormProps {
   onGenderAdded: (message: string) => void;
@@ -94,10 +94,10 @@ const AddGenderForm = ({ onGenderAdded }: AddGenderFormProps) => {
             >
               {state.loadingStore ? (
                 <>
-                  <SpinnerSmall /> loading...
+                  <SpinnerSmall /> Loading...
                 </>
               ) : (
-                "yeah, Add it!"
+                "Yeah Save it!"
               )}
             </button>
           </div>
