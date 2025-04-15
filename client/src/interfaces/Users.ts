@@ -1,6 +1,6 @@
-import Genders from "./Genders";
+import {Genders} from "./Genders";
 
-interface Users {
+export interface Users {
   user_id: number;
   first_name: string;
   middle_name?: string;
@@ -17,4 +17,4 @@ interface Users {
   updated_at: string;
 }
 
-export default Users;
+

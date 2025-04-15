@@ -1,5 +1,5 @@
-interface GenderFieldErrors {
+export interface GenderFieldErrors {
   gender?: string[];
 }
 
-export default GenderFieldErrors;
+

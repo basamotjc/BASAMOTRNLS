@@ -9,6 +9,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Genders />,
   },
+
   {
     path: "/gender/edit/:gender_id",
     element: <EditGender />,

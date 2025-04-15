@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import GenderService from "../../../src/services/GenderService";
 import ErrorHandler from "../../../src/handler/ErrorHandler";
 import Spinner from "../../components/Spinner";
-import GenderFieldErrors from "../../../src/interfaces/GenderFieldErrors";
+import { GenderFieldErrors } from "../../../src/interfaces/GenderFieldErrors";
 import SpinnerSmall from "../../components/SpinnerSmall";
 
 interface EditGenderFormProps {
